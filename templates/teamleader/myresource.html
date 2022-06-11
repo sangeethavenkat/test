@@ -1,0 +1,174 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <title>Intense Corporate Category Flat Bootstrap Responsive website Template | Home :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="Intense Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design"/>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+
+
+    </script>
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+</head>
+
+<body style="background-image:url({% static 'images\ee.jpg' %}); background-size:cover">
+
+<!-- header -->
+<header id="home">
+    <div class="container">
+        <div class="header d-lg-flex justify-content-between align-items-center py-sm-3 py-2 px-sm-2 px-1">
+            <!-- logo -->
+            <div id="logo">
+                <h1><a href="/tl/show">Intense</a></h1>
+            </div>
+            <!-- //logo -->
+            <!-- nav -->
+            <div class="nav_w3ls ml-lg-5">
+                <nav>
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop"/>
+                    <ul class="menu">
+                        <li><a href="/tl/show">TL</a></li>
+
+
+                        <li><a href="/tl/display" class="drop-text">View</a></li>
+
+                        <li><a href="/tl/allocate" class="drop-text">Allocate</a></li>
+                        <li><a href="/tl/newemp" class="drop-text">New</a></li>
+
+                        <li><a href="/tl/forms" class="drop-text">Allocated Info</a></li>
+
+
+                        <li><a href="/tl/resource" class="drop-text">Resource</a></li>
+                        <li><a href="/tl/myresource" class="active">Information</a></li>
+                        <li><a href="/tl/logout"> Logout </a></li>
+
+
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- //nav -->
+        </div>
+    </div>
+</header>
+
+<!-- //header -->
+<div> {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<!-- banner -->
+<section class="">
+    <!doctype html>
+    <html lang="en">
+    <head>
+        {% load static %}
+        <title>Employee Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="{% static 't/css/style.css'%}">
+
+    </head>
+    <body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">{% if st %}
+                    <h2 class="heading-section">Requested Resources</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Tl</th>
+                                <th>PM</th>
+                                <th>RESOURCE</th>
+                                <th>RESOURCE NEEDS</th>
+                                <th>NAME OF PROJECT</th>
+                                <th>PROJECT STATUS</th>
+                                <th>DUEDAYS</th>
+                                <th>STATUS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="alert" role="alert">
+                                {% for d in st %}
+                                <th scope="row">{{d.id}}</th>
+                                <td>{{d.tlname}}</td>
+                                <td>{{d.pmname}}</td>
+
+                                <td>{{d.resourcename}}</td>
+
+                                <td>{{d.need}}</td>
+                                <td>{{d.projectname}}</td>
+                                <td>{{d.onoroff}}</td>
+                                <td>{{d.duedays}}</td>
+                                <td>{{d.status}}</td>
+
+
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        <br><br>
+                        <center><h2>Allocation Finished</h2></center>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 't/js/jquery.min.js'%}"></script>
+    <script src="{% static 't/js/popper.js'%}"></script>
+    <script src="{% static 't/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 't/js/main.js'%}"></script>
+
+
+    </body>
+
+    </html>

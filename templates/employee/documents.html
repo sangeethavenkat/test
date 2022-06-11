@@ -1,0 +1,180 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <title>Intense Corporate Category Flat Bootstrap Responsive website Template | Home :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="Intense Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design"/>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+
+    </script>
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+</head>
+
+<body style="background-image:url({% static 'images\ff.jpg' %});  background-size:cover ">
+
+<!-- header -->
+<header id="home">
+    <div class="container">
+        <div class="header d-lg-flex justify-content-between align-items-center py-sm-3 py-2 px-sm-2 px-1">
+            <!-- logo -->
+            <div id="logo">
+                <h1><a href="/emp/display">Intense</a></h1>
+            </div>
+            <!-- //logo -->
+            <!-- nav -->
+            <div class="nav_w3ls ml-lg-5">
+                <nav>
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop"/>
+                    <ul class="menu">
+                        <li><a href="/emp/display">Employee</a></li>
+                        <li><a href="/emp/newone" class="active">UploadFiles</a></li>
+                        <li><a href="/emp/viewwork1" class="drop-text">View Work</a></li>
+                        <li><a href="/emp/viewwork" class="drop-text">Work Status</a></li>
+                        <li><a href="/emp/logout"> Logout </a></li>
+
+
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- //nav -->
+        </div>
+    </div>
+</header>
+
+<!-- //header -->
+<div>
+    {% if messages %}
+    {% for message in messages%}
+    <script>
+        alert("{{message}}")
+
+
+    </script>
+    {% endfor %}
+    {% endif %}
+</div>
+<!-- banner -->
+<section class="">
+    <!doctype html>
+    <html lang="en">
+    <head>
+        {% load static %}
+        <title>Employee Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="{% static 't/css/style.css'%}">
+
+    </head>
+    <body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5"> {% if st %}
+                    <h2 class="heading-section">Work Status</h2>
+                </div>
+            </div>
+            {% for d in st %}
+            <form action="/emp/form/{{d.id}}" method="post"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {% endfor %}
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="table-wrap">
+
+                            <table class="table"> {% for d in st %}
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>NUMBER</th>
+                                    <th>UPLOAD</th>
+                                    <th>SUBMIT</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="alert" role="alert">
+
+
+                                    <th scope="row">{{d.id}}</th>
+
+                                    <td>{{d.name}}</td>
+
+                                    <td>{{d.email}}</td>
+                                    <td>{{d.contact}}</td>
+                                    <td><input type="file" name="upload"></td>
+
+
+                                    <td><input class="btn btn-primary" type="submit" value="submit"></td>
+
+
+                                </tr>
+
+
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </form>
+            {% else %}
+            <h2><br><br><br>
+                <center style="color:white">No Files to Upload</center>
+            </h2>
+            {% endif %}
+        </div>
+    </section>
+
+    <script src="{% static 't/js/jquery.min.js'%}"></script>
+    <script src="{% static 't/js/popper.js'%}"></script>
+    <script src="{% static 't/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 't/js/main.js'%}"></script>
+
+    </body>
+    </html>
+
+
+</body>
+
+</html>

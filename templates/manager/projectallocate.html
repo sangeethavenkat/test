@@ -1,0 +1,207 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <title>Intense Corporate Category Flat Bootstrap Responsive website Template | Home :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="Intense Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design"/>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+
+
+
+
+
+
+    </script>
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+</head>
+
+<body style="background-image:url({% static 'images\dt.jpg' %});
+
+  background-size: cover; ">
+
+<!-- header -->
+<header id="home">
+    <div class="container">
+        <div class="header d-lg-flex justify-content-between align-items-center py-sm-3 py-2 px-sm-2 px-1">
+            <!-- logo -->
+            <div id="logo">
+                <h1><a href="/pm/show/">Intense</a></h1>
+            </div>
+            <!-- //logo -->
+            <!-- nav -->
+            <div class="nav_w3ls ml-lg-5">
+                <nav>
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop"/>
+                    <ul class="menu">
+                        <li><a href="/pm/show">ProjectManager</a></li>
+
+
+                        <li><a href="/pm/display1" class="">Add TL</a></li>
+                        <li><a href="/pm/projects" class="active">Allocate TL</a></li>
+
+                        <li><a href="/pm/status"> Project Status </a></li>
+
+                        <li><a href="/pm/showresource"> Add Resource</a></li>
+                        <li><a href="/pm/logout"> Logout </a></li>
+
+
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- //nav -->
+        </div>
+    </div>
+</header>
+
+<!-- //header -->
+<div> {% if messages %}
+    {% for message in messages%}
+    <script>
+        alert("{{message}}")
+
+
+
+
+
+
+
+    </script>
+    {% endfor %}
+    {% endif %}
+</div>
+<!-- banner -->
+<section class="=">
+    <!doctype html>
+    <html lang="en">
+    <head>
+        {% load static %}
+        <title>Employee Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="{% static 't/css/style.css'%}">
+
+    </head>
+    <body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">{% if st %}
+                    <h2 class="heading-section" style="color:white">Allocate Project </h2>
+                </div>
+            </div>
+            {% for d in st %}
+            <form action="/pm/impart/{{d.id}}" method="post">
+                {% csrf_token %}
+                {% endfor %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>USERNAME</th>
+                                    <th>DOCUMENTS</th>
+                                    <th>ID</th>
+                                    <th>PROJECT</th>
+                                    <th>TEAM LEADER</th>
+                                    <th>ALLOCATE</th>
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="alert" role="alert">
+                                    {% for d in st %}
+                                    <td>{{d.username}}</td>
+                                    <td>{{d.upload}}</td>
+                                    <td>{{d.empid}}</td>
+                                    <td><select style="width:180px;height:30px" name="project">
+
+                                        <option disabled="disabled" selected="selected">Choose option</option>
+                                        <option value="The BlueBird"> The Bluebird-</option>
+                                        <option value="Meetup for the good"> Meetup for the good</option>
+                                        <option value="The Social Experiment">The Social Experiment</option>
+                                        <option value="The Success">The Success</option>
+                                        <option value="Stratos">Stratos</option>
+                                        <option value="Sputnik">Sputnik</option>
+                                        <option value="Skillup">Skillup</option>
+                                        <option value="Hornets">Hornets</option>
+                                        <option value="Bigfish">Bigfish</option>
+                                        <option value="Mercury">Mercury</option>
+
+
+                                    </select></td>
+
+                                    <td><select style="width:180px;height:30px" name="tl">
+                                        <option disabled="disabled" selected="selected">Choose TL</option>
+
+                                        {% for a in at %}
+                                        <option value="{{a.username}}">{{a.username}}</option>
+                                        {% endfor %}
+                                    </select></td>
+                                    <td>
+                                        <input class="btn btn-primary" type="submit" value="Submit ">
+
+                                    </td>
+
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            {% else %}
+                            <h1>
+                                <center style="color:white">No Allocation Process</center>
+                            </h1>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="{% static 't/js/jquery.min.js'%}"></script>
+    <script src="{% static 't/js/popper.js'%}"></script>
+    <script src="{% static 't/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 't/js/main.js'%}"></script>
+
+    </body>
+    </html>
+
+
+

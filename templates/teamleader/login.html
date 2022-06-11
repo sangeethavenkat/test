@@ -1,0 +1,110 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+        {% load static %}
+    <title>Intense Corporate Category Flat Bootstrap Responsive website Template | Login :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Intense Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+</head>
+
+<body style="background-image:url({% static 'images\photo12.jpg' %});  background-size: cover">
+{% if messages %}
+{% for message in messages %}
+<script>
+        alert("{{message}}")
+
+</script>
+{% endfor %}
+{% endif %}
+    <header id="home">
+        <div class="container">
+            <div class="header d-lg-flex justify-content-between align-items-center py-sm-3 py-2 px-sm-2 px-1">
+                <!-- logo -->
+                <div id="logo">
+                    <h1><a href="/">Intense</a></h1>
+                </div>
+                <!-- //logo -->
+                <!-- nav -->
+                <div class="nav_w3ls ml-lg-5">
+                    <nav>
+                        <label for="drop" class="toggle">Menu</label>
+                        <input type="checkbox" id="drop" />
+                        <ul class="menu">
+
+
+
+                        </ul>
+                    </nav>
+                </div>
+                <!-- //nav -->
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+    <!-- inner banner -->
+    <div class="">
+    </div>
+    <!-- //inner banner -->
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+                <a href="/" class="m-0">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Login</li>
+        </ol>
+    </nav>
+    <!-- //breadcrumbs -->
+    <!-- login  -->
+    <div class="modal-body align-w3">
+        <form action="/tl/login/" method="post" class="p-sm-3">
+
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label" style="color:white">Username</label>
+                <input type="text" class="form-control" placeholder="your name" name="username" id="recipient-name"
+                    required="">
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-form-label"style="color:white">Password</label>
+                <input type="password" class="form-control" placeholder="*****" name="password" id="password" required="">
+            </div>
+            <div class="right-w3l">
+                <input type="submit" class="form-control bg-theme" value="Login">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

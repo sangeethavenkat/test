@@ -1,0 +1,20 @@
+def sendtostorage(request):
+    st=store.objects.filter(status='filestored')
+    return render(request,'seller/sendtostorage.html',{'st':st})
+def encrypt(request,id):
+    st = store.objects.filter(id=id)
+    for i in st:
+        key = "".join(random.choices(string.digits, k=10)).encode()
+        i.key = key
+        i.save()
+        with open(f'{settings.MEDIA_ROOT}/{i.file}', "rb") as file:
+            data = file.read()
+            arc4=ARC4(key)
+            cipher=arc4.encrypt(data)
+        with open(f'{settings.MEDIA_ROOT}/{i.file}', "wb") as file:
+            file.write(cipher)
+    s=store.objects.get(id=id)
+    s.status='encrypted'
+    s.encrypted=cipher
+    s.save()
+    return redirect('/sell/sendtostorage')
